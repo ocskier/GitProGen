@@ -1,0 +1,28 @@
+{
+  "name": "gitprogen",
+  "version": "1.0.0",
+  "description": "Dynamically generates a PDF profile from a GitHub username",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ocskier/GitProGen.git"
+  },
+  "keywords": [
+    "profile"
+  ],
+  "author": "Jon Jackson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ocskier/GitProGen/issues"
+  },
+  "homepage": "https://github.com/ocskier/GitProGen#readme",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "dotenv": "^8.2.0",
+    "inquirer": "^7.0.3",
+    "phantom-html-to-pdf": "^0.6.0"
+  }
+}
