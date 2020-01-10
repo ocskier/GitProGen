@@ -5,7 +5,8 @@ const axios = require('axios');
 const inquirer = require('inquirer');
 const conversion = require('phantom-html-to-pdf')();
 
-const {colors, generateHTML} = require('./generateHTML');
+const spawnHTML = require('./generateHTML.ts');
+console.log(spawnHTML);
 
 const questions = [
     {
@@ -20,8 +21,8 @@ const questions = [
     }
 ];
 
-function writeToFile(fileName, data) {
-    conversion({html: generateHTML(data)}, function(err,pdf) {
+function writeToFile(fileName: string, data) {
+    conversion({html: spawnHTML(data)}, function(err,pdf) {
         if(err) console.log(err);
         const output = fs.createWriteStream(fileName);
         console.log(pdf.logs);

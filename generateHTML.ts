@@ -175,75 +175,75 @@ const generateHTML = (data) => {
                 </style>
             </head>
             <body>
-            <!-- profile-page-header -->
-          <div id="profile-page-header" class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-              <!-- <img class="activator" src=${data.pic} alt="user background"> -->
-            </div>
-            <figure class="card-profile-image">
-              <img src="https://via.placeholder.com/150x150" alt="profile image" class="circle z-depth-2 responsive-img activator gradient-45deg-light-blue-cyan gradient-shadow">
-              <div style="top: 10%;right: 3%;position: absolute;"><g:sharetoclassroom url="http://url-to-share" size="48"></g:sharetoclassroom></div>
-            </figure>
-            <div class="card-content">
-              <div class="row pt-2">
-                <div class="col s12 center m3 offset-m2">
-                  <h4 class="card-title grey-text text-darken-4">${data.login}</h4>
-                  <p class="medium-small grey-text">Teacher</p>
+              <!-- profile-page-header -->
+              <div id="profile-page-header" class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <!-- <img class="activator" src=${data.pic} alt="user background"> -->
                 </div>
-                <div class="col s12 m2 center-align">
-                  <h4 class="card-title grey-text text-darken-4">${data.html_url}</h4>
-                  <p class="medium-small grey-text">Subject</p>
-                </div>
-                <div class="col s12 m2 center-align">
-                  <h4 class="card-title grey-text text-darken-4">${data.starred}</h4>
-                  <p class="medium-small grey-text">Grade Level</p>
-                </div>
-                <div class="col s12 m1 right-align">
-                  <a class="btn-floating activator waves-effect waves-light rec accent-2 right">
-                    <i class="material-icons">perm_identity</i>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="row card-reveal">
-              <div class="col s12 m5">
-                <p>
-                  <span class="card-title grey-text text-darken-4">${data.login}
-                  </span>
-                  <br>
-                  <span>
-                    <i class="material-icons cyan-text text-darken-2">perm_identity</i> Teacher</span>
-                </p>
-                <i class="card-title material-icons right" style="position:absolute;top:5%;right:2%">close</i>
-                <!-- <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p> -->
-                <p>
-                  <i class="material-icons cyan-text text-darken-2">perm_phone_msg</i> +1 (555) 555 8989</p>
-                <p>
-                  <i class="material-icons cyan-text text-darken-2">email</i> mail@domain.com</p>
-                <p>
-                  <i class="material-icons cyan-text text-darken-2">cake</i> 18th June 1990</p>
-                <!-- <p>
-                  <i class="material-icons cyan-text text-darken-2">airplanemode_active</i> BAR - AUS</p> -->
-              </div>
-              <div class="col s12 m6">
-                <br>
-                  <div class="input-field col s12 m6">
-                      <select id="change-subj-field" class="icons">
-                        <option data-icon="images/sample-1.jpg" disabled selected>Change Subject</option>
-                      </select>
+                <figure class="card-profile-image">
+                  <img src="https://via.placeholder.com/150x150" alt="profile image" class="circle z-depth-2 responsive-img activator gradient-45deg-light-blue-cyan gradient-shadow">
+                  <div style="top: 10%;right: 3%;position: absolute;"><g:sharetoclassroom url="http://url-to-share" size="48"></g:sharetoclassroom></div>
+                </figure>
+                <div class="card-content">
+                  <div class="row pt-2">
+                    <div class="col s12 center m3 offset-m2">
+                      <h4 class="card-title grey-text text-darken-4">${data.login}</h4>
+                      <p class="medium-small grey-text">Teacher</p>
+                    </div>
+                    <div class="col s12 m2 center-align">
+                      <h4 class="card-title grey-text text-darken-4">${data.html_url}</h4>
+                      <p class="medium-small grey-text">Subject</p>
+                    </div>
+                    <div class="col s12 m2 center-align">
+                      <h4 class="card-title grey-text text-darken-4">${data.starred}</h4>
+                      <p class="medium-small grey-text">Grade Level</p>
+                    </div>
+                    <div class="col s12 m1 right-align">
+                      <a class="btn-floating activator waves-effect waves-light rec accent-2 right">
+                        <i class="material-icons">perm_identity</i>
+                      </a>
+                    </div>
                   </div>
-                  <div class="input-field col s12 m6">
-                      <select id="change-grade-field" class="icons">
-                        <option data-icon="images/sample-1.jpg" class="left" disabled selected>Change Grade</option>
-                      </select>
+                </div>
+                <div class="row card-reveal">
+                  <div class="col s12 m5">
+                    <p>
+                      <span class="card-title grey-text text-darken-4">${data.login}
+                      </span>
+                      <br>
+                      <span>
+                        <i class="material-icons cyan-text text-darken-2">perm_identity</i> Teacher</span>
+                    </p>
+                    <i class="card-title material-icons right" style="position:absolute;top:5%;right:2%">close</i>
+                    <!-- <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p> -->
+                    <p>
+                      <i class="material-icons cyan-text text-darken-2">perm_phone_msg</i> +1 (555) 555 8989</p>
+                    <p>
+                      <i class="material-icons cyan-text text-darken-2">email</i> mail@domain.com</p>
+                    <p>
+                      <i class="material-icons cyan-text text-darken-2">cake</i> 18th June 1990</p>
+                    <!-- <p>
+                      <i class="material-icons cyan-text text-darken-2">airplanemode_active</i> BAR - AUS</p> -->
                   </div>
-                  <br>
-                  <button type="submit" class="btn btn-default blue-grey darken-1" id="submit-change-text">Submit Change</button>
+                  <div class="col s12 m6">
+                    <br>
+                      <div class="input-field col s12 m6">
+                          <select id="change-subj-field" class="icons">
+                            <option data-icon="images/sample-1.jpg" disabled selected>Change Subject</option>
+                          </select>
+                      </div>
+                      <div class="input-field col s12 m6">
+                          <select id="change-grade-field" class="icons">
+                            <option data-icon="images/sample-1.jpg" class="left" disabled selected>Change Grade</option>
+                          </select>
+                      </div>
+                      <br>
+                      <button type="submit" class="btn btn-default blue-grey darken-1" id="submit-change-text">Submit Change</button>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
             </body>
           </html>`;
 }
 
-module.exports = {colors, generateHTML};
+module.exports = generateHTML;
