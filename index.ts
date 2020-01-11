@@ -1,7 +1,4 @@
-import { Answers } from "inquirer";
-
 require('dotenv').config();
-require('typescript-require');
 
 const fs = require('fs');
 
@@ -10,7 +7,7 @@ const conversion = require('phantom-html-to-pdf')();
 const axios = require('axios');
 const spawnHTML = require('./generateHTML');
 
-interface UserDataType {
+export interface UserDataType {
     color: string;
     login: string;
     name: string;
@@ -49,15 +46,15 @@ function writeToFile(fileName: string, data: UserDataType) {
 
 async function init() {
     try {
-        const answers = await inquirer.prompt(questions);
-        answers.confirm && getGHData(answers);
+        const { githubID, confirm } = await inquirer.prompt(questions);
+        confirm && getGHData(githubID);
     } catch(err) {
         console.log(err);
     }
 }
 
-async function getGHData(data: Answers) {
-    const response = await axios.get(`https://api.github.com/users/${data.githubID}?token=${process.env.GITHUB_TOKEN}`);
+async function getGHData(id: string) {
+    const response = await axios.get(`https://api.github.com/users/${id}?token=${process.env.GITHUB_TOKEN}`);
     const userData = {
         color: "blue",
         login: response.data.login,

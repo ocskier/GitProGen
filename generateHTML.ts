@@ -1,22 +1,11 @@
+require('typescript-require');
+import {UserDataType} from'./index';
+
 interface ColorsType {
     [key: string]: {
       [key:string]: string;
     }
   }
-
-interface UserDataType {
-    color: string;
-    login: string;
-    name: string;
-    location: string;
-    profile: string;
-    blog: string;
-    bio: string;
-    numRepos: number;
-    followers: number;
-    starred: string;
-    following: number;
-}
 
 const colors: ColorsType = {
   green: {
