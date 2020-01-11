@@ -1,6 +1,6 @@
 import { UserDataType } from "./index";
 
-type ColorsType = {
+interface ColorsType {
     [key: string]: {
       [key:string]: string
     }

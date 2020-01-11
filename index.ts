@@ -1,19 +1,19 @@
-const fs = require('fs');
 require('dotenv').config();
 
-const axios = require('axios');
-import {AxiosResponse, AxiosError} from 'axios';
+const fs = require('fs');
+
 const inquirer = require('inquirer');
 const conversion = require('phantom-html-to-pdf')();
-
+const axios = require('axios');
 const spawnHTML = require('./generateHTML.ts');
+
 console.log(spawnHTML);
 
-type AnswersType = {
+interface AnswersType {
     githubID: string,
     confirm: boolean
 }
-export type UserDataType = {
+export interface UserDataType {
     color: string,
     login: string,
     name: string,
@@ -54,7 +54,7 @@ function init() {
     inquirer.prompt(questions).then((answers: AnswersType) => {
         if(answers.confirm) {
             axios.get(`https://api.github.com/users/${answers.githubID}?token=${process.env.GITHUB_TOKEN}`)
-                .then((response: AxiosResponse) => {
+                .then((response: any) => {
                     const userData = {
                         color: "blue",
                         login: response.data.login,
@@ -71,7 +71,7 @@ function init() {
                     userData && console.log(userData);
                     userData && writeToFile('output.pdf', userData);
                 })
-                .catch((err: AxiosError) => {
+                .catch((err: Error) => {
                     console.log(err)
             });
         }
