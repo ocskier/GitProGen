@@ -2,7 +2,7 @@
   "name": "gitprogen",
   "version": "1.0.0",
   "description": "Dynamically generates a PDF profile from a GitHub username",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tsc": "tsc"
@@ -27,6 +27,7 @@
     "dotenv": "^8.2.0",
     "inquirer": "^7.0.3",
     "phantom-html-to-pdf": "^0.6.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.7.4",
+    "typescript-require": "^0.2.10"
   }
 }

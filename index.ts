@@ -1,30 +1,27 @@
+import { Answers } from "inquirer";
+
 require('dotenv').config();
+require('typescript-require');
 
 const fs = require('fs');
 
 const inquirer = require('inquirer');
 const conversion = require('phantom-html-to-pdf')();
 const axios = require('axios');
-const spawnHTML = require('./generateHTML.ts');
+const spawnHTML = require('./generateHTML');
 
-console.log(spawnHTML);
-
-interface AnswersType {
-    githubID: string,
-    confirm: boolean
-}
-export interface UserDataType {
-    color: string,
-    login: string,
-    name: string,
-    location: string,
-    profile: string,
-    blog: string,
-    bio: string,
-    numRepos: number,
-    followers: number,
-    starred: string,
-    following: number
+interface UserDataType {
+    color: string;
+    login: string;
+    name: string;
+    location: string;
+    profile: string;
+    blog: string;
+    bio: string;
+    numRepos: number;
+    followers: number;
+    starred: string;
+    following: number;
 }
 
 const questions = [
@@ -50,33 +47,34 @@ function writeToFile(fileName: string, data: UserDataType) {
     });
 }
 
-function init() {
-    inquirer.prompt(questions).then((answers: AnswersType) => {
-        if(answers.confirm) {
-            axios.get(`https://api.github.com/users/${answers.githubID}?token=${process.env.GITHUB_TOKEN}`)
-                .then((response: any) => {
-                    const userData = {
-                        color: "blue",
-                        login: response.data.login,
-                        name: response.data.name,
-                        location: response.data.location,
-                        profile: response.data.html_url,
-                        blog: response.data.blog,
-                        bio: response.data.bio,
-                        numRepos: response.data.public_repos,
-                        followers: response.data.followers,
-                        starred: response.data.starred_url,
-                        following: response.data.following
-                    }
-                    userData && console.log(userData);
-                    userData && writeToFile('output.pdf', userData);
-                })
-                .catch((err: Error) => {
-                    console.log(err)
-            });
-        }
-    })
+async function init() {
+    try {
+        const answers = await inquirer.prompt(questions);
+        answers.confirm && getGHData(answers);
+    } catch(err) {
+        console.log(err);
+    }
+}
+
+async function getGHData(data: Answers) {
+    const response = await axios.get(`https://api.github.com/users/${data.githubID}?token=${process.env.GITHUB_TOKEN}`);
+    const userData = {
+        color: "blue",
+        login: response.data.login,
+        name: response.data.name,
+        location: response.data.location,
+        profile: response.data.html_url,
+        blog: response.data.blog,
+        bio: response.data.bio,
+        numRepos: response.data.public_repos,
+        followers: response.data.followers,
+        starred: response.data.starred_url,
+        following: response.data.following
+    }
+    userData && console.log(userData);
+    userData && writeToFile('output.pdf', userData);
 }
 
 init();
+
 
