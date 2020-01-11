@@ -1,6 +1,12 @@
-import { UserDataType } from ".";
+import { UserDataType } from "./index";
 
-const colors = {
+type ColorsType = {
+    [key: string]: {
+      [key:string]: string
+    }
+  }
+
+const colors: ColorsType = {
   green: {
     wrapperBackground: "#E6E1C3",
     headerBackground: "#C1C72C",

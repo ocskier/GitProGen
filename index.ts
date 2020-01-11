@@ -2,6 +2,7 @@ const fs = require('fs');
 require('dotenv').config();
 
 const axios = require('axios');
+import {AxiosResponse, AxiosError} from 'axios';
 const inquirer = require('inquirer');
 const conversion = require('phantom-html-to-pdf')();
 
@@ -40,7 +41,7 @@ const questions = [
 ];
 
 function writeToFile(fileName: string, data: UserDataType) {
-    conversion({html: spawnHTML(data)}, function(err: ErrorEvent ,pdf: any) {
+    conversion({html: spawnHTML(data)}, function(err: Error ,pdf: any) {
         if(err) console.log(err);
         const output = fs.createWriteStream(fileName);
         console.log(pdf.logs);
@@ -53,7 +54,7 @@ function init() {
     inquirer.prompt(questions).then((answers: AnswersType) => {
         if(answers.confirm) {
             axios.get(`https://api.github.com/users/${answers.githubID}?token=${process.env.GITHUB_TOKEN}`)
-                .then((response: any) => {
+                .then((response: AxiosResponse) => {
                     const userData = {
                         color: "blue",
                         login: response.data.login,
@@ -70,7 +71,7 @@ function init() {
                     userData && console.log(userData);
                     userData && writeToFile('output.pdf', userData);
                 })
-                .catch((err: Error) => {
+                .catch((err: AxiosError) => {
                     console.log(err)
             });
         }
