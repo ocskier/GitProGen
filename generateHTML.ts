@@ -1,3 +1,5 @@
+import { UserDataType } from ".";
+
 const colors = {
   green: {
     wrapperBackground: "#E6E1C3",
@@ -25,7 +27,7 @@ const colors = {
   }
 };
 
-const generateHTML = (data) => {
+const generateHTML = (data: UserDataType) => {
   return `<!DOCTYPE html>
           <html lang="en">
             <head>
@@ -178,7 +180,7 @@ const generateHTML = (data) => {
               <!-- profile-page-header -->
               <div id="profile-page-header" class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                  <!-- <img class="activator" src=${data.pic} alt="user background"> -->
+                  <!-- <img class="activator" src=${data.bio} alt="user background"> -->
                 </div>
                 <figure class="card-profile-image">
                   <img src="https://via.placeholder.com/150x150" alt="profile image" class="circle z-depth-2 responsive-img activator gradient-45deg-light-blue-cyan gradient-shadow">
@@ -191,7 +193,7 @@ const generateHTML = (data) => {
                       <p class="medium-small grey-text">Teacher</p>
                     </div>
                     <div class="col s12 m2 center-align">
-                      <h4 class="card-title grey-text text-darken-4">${data.html_url}</h4>
+                      <h4 class="card-title grey-text text-darken-4">${data.numRepos}</h4>
                       <p class="medium-small grey-text">Subject</p>
                     </div>
                     <div class="col s12 m2 center-align">

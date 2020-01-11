@@ -8,11 +8,29 @@ const conversion = require('phantom-html-to-pdf')();
 const spawnHTML = require('./generateHTML.ts');
 console.log(spawnHTML);
 
+type AnswersType = {
+    githubID: string,
+    confirm: boolean
+}
+export type UserDataType = {
+    color: string,
+    login: string,
+    name: string,
+    location: string,
+    profile: string,
+    blog: string,
+    bio: string,
+    numRepos: number,
+    followers: number,
+    starred: string,
+    following: number
+}
+
 const questions = [
     {
-      message: "What is your github username?",
-      type: "input",
-      name: "githubID"
+        message: "What is your github username?",
+        type: "input",
+        name: "githubID"
     },
     {
         message: "Are you sure?",
@@ -21,8 +39,8 @@ const questions = [
     }
 ];
 
-function writeToFile(fileName: string, data) {
-    conversion({html: spawnHTML(data)}, function(err,pdf) {
+function writeToFile(fileName: string, data: UserDataType) {
+    conversion({html: spawnHTML(data)}, function(err: ErrorEvent ,pdf: any) {
         if(err) console.log(err);
         const output = fs.createWriteStream(fileName);
         console.log(pdf.logs);
@@ -32,10 +50,10 @@ function writeToFile(fileName: string, data) {
 }
 
 function init() {
-    inquirer.prompt(questions).then(answers=>{
+    inquirer.prompt(questions).then((answers: AnswersType) => {
         if(answers.confirm) {
             axios.get(`https://api.github.com/users/${answers.githubID}?token=${process.env.GITHUB_TOKEN}`)
-                .then((response) => {
+                .then((response: any) => {
                     const userData = {
                         color: "blue",
                         login: response.data.login,
@@ -52,7 +70,7 @@ function init() {
                     userData && console.log(userData);
                     userData && writeToFile('output.pdf', userData);
                 })
-                .catch((err) => {
+                .catch((err: Error) => {
                     console.log(err)
             });
         }
@@ -60,3 +78,4 @@ function init() {
 }
 
 init();
+
