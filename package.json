@@ -27,6 +27,7 @@
     "dotenv": "^8.2.0",
     "inquirer": "^7.0.3",
     "phantom-html-to-pdf": "^0.6.0",
+    "phantomjs-prebuilt": "^2.1.16",
     "typescript": "^3.7.4",
     "typescript-require": "^0.2.10"
   }

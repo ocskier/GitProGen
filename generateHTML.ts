@@ -1,11 +1,11 @@
-require('typescript-require');
-import {UserDataType} from'./index';
+require("typescript-require");
+import { UserDataType } from "./index";
 
 interface ColorsType {
-    [key: string]: {
-      [key:string]: string;
-    }
-  }
+  [key: string]: {
+    [key: string]: string;
+  };
+}
 
 const colors: ColorsType = {
   green: {
@@ -187,7 +187,9 @@ const generateHTML = (data: UserDataType) => {
               <!-- profile-page-header -->
               <div id="profile-page-header" class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                  <!-- <img class="activator" src=${data.bio} alt="user background"> -->
+                  <!-- <img class="activator" src=${
+                    data.bio
+                  } alt="user background"> -->
                 </div>
                 <figure class="card-profile-image">
                   <img src="https://via.placeholder.com/150x150" alt="profile image" class="circle z-depth-2 responsive-img activator gradient-45deg-light-blue-cyan gradient-shadow">
@@ -196,15 +198,21 @@ const generateHTML = (data: UserDataType) => {
                 <div class="card-content">
                   <div class="row pt-2">
                     <div class="col s12 center m3 offset-m2">
-                      <h4 class="card-title grey-text text-darken-4">${data.login}</h4>
+                      <h4 class="card-title grey-text text-darken-4">${
+                        data.login
+                      }</h4>
                       <p class="medium-small grey-text">Teacher</p>
                     </div>
                     <div class="col s12 m2 center-align">
-                      <h4 class="card-title grey-text text-darken-4">${data.numRepos}</h4>
+                      <h4 class="card-title grey-text text-darken-4">${
+                        data.numRepos
+                      }</h4>
                       <p class="medium-small grey-text">Subject</p>
                     </div>
                     <div class="col s12 m2 center-align">
-                      <h4 class="card-title grey-text text-darken-4">${data.starred}</h4>
+                      <h4 class="card-title grey-text text-darken-4">${
+                        data.starred
+                      }</h4>
                       <p class="medium-small grey-text">Grade Level</p>
                     </div>
                     <div class="col s12 m1 right-align">
@@ -217,7 +225,9 @@ const generateHTML = (data: UserDataType) => {
                 <div class="row card-reveal">
                   <div class="col s12 m5">
                     <p>
-                      <span class="card-title grey-text text-darken-4">${data.login}
+                      <span class="card-title grey-text text-darken-4">${
+                        data.login
+                      }
                       </span>
                       <br>
                       <span>
@@ -253,6 +263,6 @@ const generateHTML = (data: UserDataType) => {
               </div>
             </body>
           </html>`;
-}
+};
 
 module.exports = generateHTML;
