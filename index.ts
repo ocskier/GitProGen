@@ -12,6 +12,7 @@ export interface UserDataType {
   login: string;
   name: string;
   location: string;
+  pic: string;
   profile: string;
   blog: string;
   bio: string;
@@ -68,12 +69,13 @@ async function getGHData(id: string, color: string) {
     login: response.data.login,
     name: response.data.name,
     location: response.data.location,
+    pic: response.data.avatar_url,
     profile: response.data.html_url,
     blog: response.data.blog,
     bio: response.data.bio,
     numRepos: response.data.public_repos,
     followers: response.data.followers,
-    starred: response.data.starred_url,
+    starred: response.data.public_gists,
     following: response.data.following
   };
   userData && console.log(userData);

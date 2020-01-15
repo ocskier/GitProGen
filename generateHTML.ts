@@ -188,7 +188,7 @@ const generateHTML = (data: UserDataType) => {
               <div id="profile-page-header" class="card">
                 <div class="card-image waves-effect waves-block waves-light">
                   <!-- <img class="activator" src=${
-                    data.bio
+                    data.pic
                   } alt="user background"> -->
                 </div>
                 <figure class="card-profile-image">
@@ -201,19 +201,19 @@ const generateHTML = (data: UserDataType) => {
                       <h4 class="card-title grey-text text-darken-4">${
                         data.login
                       }</h4>
-                      <p class="medium-small grey-text">Teacher</p>
+                      <p class="medium-small black-text">Username</p>
                     </div>
                     <div class="col s12 m2 center-align">
                       <h4 class="card-title grey-text text-darken-4">${
                         data.numRepos
                       }</h4>
-                      <p class="medium-small grey-text">Subject</p>
+                      <p class="medium-small black-text">Repos</p>
                     </div>
                     <div class="col s12 m2 center-align">
                       <h4 class="card-title grey-text text-darken-4">${
-                        data.starred
+                        data.profile
                       }</h4>
-                      <p class="medium-small grey-text">Grade Level</p>
+                      <p class="medium-small black-text">GH Link</p>
                     </div>
                     <div class="col s12 m1 right-align">
                       <a class="btn-floating activator waves-effect waves-light rec accent-2 right">
