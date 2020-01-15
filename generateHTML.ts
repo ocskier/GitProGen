@@ -190,30 +190,39 @@ const generateHTML = (data: UserDataType) => {
                   <!-- <img class="activator" src="" alt="user background"> -->
                 </div>
                 <figure class="card-profile-image">
-                  <img src=${
+                  <img width=200 height=200 src=${
                     data.pic
                   } alt="profile image" class="circle z-depth-2 responsive-img activator gradient-45deg-light-blue-cyan gradient-shadow">
                   <div style="top: 10%;right: 3%;position: absolute;"></div>
                 </figure>
+                <figure class="card-profile-image">
+                  <img width=300 height=300 src=https://maps.googleapis.com/maps/api/staticmap?center=${
+                    data.location
+                  }&zoom=14&size=400x400&key=${
+    process.env.CLIENT_ID
+  } alt="map location" class="z-depth-2 responsive-img activator gradient-45deg-light-blue-cyan 
+                  gradient-shadow">
+                  <div style="top: 10%;right: 93%;position: absolute;"></div>
+                </figure>
                 <div class="card-content">
                   <div class="row pt-2">
                     <div class="col s12 center m3 offset-m2">
+                      <p class="medium-small black-text">Username</p>
                       <h4 class="card-title grey-text text-darken-4">${
                         data.login
                       }</h4>
-                      <p class="medium-small black-text">Username</p>
                     </div>
                     <div class="col s12 m2 center-align">
+                      <p class="medium-small black-text">Repos</p>
                       <h4 class="card-title grey-text text-darken-4">${
                         data.numRepos
                       }</h4>
-                      <p class="medium-small black-text">Repos</p>
                     </div>
                     <div class="col s12 m2 center-align">
+                      <p class="medium-small black-text">GH Link</p>
                       <h4 class="card-title grey-text text-darken-4">${
                         data.profile
                       }</h4>
-                      <p class="medium-small black-text">GH Link</p>
                     </div>
                     <div class="col s12 m1 right-align">
                       <a class="btn-floating activator waves-effect waves-light rec accent-2 right">
@@ -234,26 +243,18 @@ const generateHTML = (data: UserDataType) => {
                         <i class="material-icons cyan-text text-darken-2">perm_identity</i> Teacher</span>
                     </p>
                     <i class="card-title material-icons right" style="position:absolute;top:5%;right:2%">close</i>
-                    <!-- <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p> -->
                     <p>
                       <i class="material-icons cyan-text text-darken-2">perm_phone_msg</i> +1 (555) 555 8989</p>
                     <p>
                       <i class="material-icons cyan-text text-darken-2">email</i> mail@domain.com</p>
                     <p>
                       <i class="material-icons cyan-text text-darken-2">cake</i> 18th June 1990</p>
-                    <!-- <p>
-                      <i class="material-icons cyan-text text-darken-2">airplanemode_active</i> BAR - AUS</p> -->
                   </div>
                   <div class="col s12 m6">
                     <br>
                       <div class="input-field col s12 m6">
                           <select id="change-subj-field" class="icons">
                             <option data-icon="images/sample-1.jpg" disabled selected>Change Subject</option>
-                          </select>
-                      </div>
-                      <div class="input-field col s12 m6">
-                          <select id="change-grade-field" class="icons">
-                            <option data-icon="images/sample-1.jpg" class="left" disabled selected>Change Grade</option>
                           </select>
                       </div>
                       <br>
