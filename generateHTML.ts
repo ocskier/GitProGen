@@ -187,13 +187,13 @@ const generateHTML = (data: UserDataType) => {
               <!-- profile-page-header -->
               <div id="profile-page-header" class="card">
                 <div class="card-image waves-effect waves-block waves-light">
-                  <!-- <img class="activator" src=${
-                    data.pic
-                  } alt="user background"> -->
+                  <!-- <img class="activator" src="" alt="user background"> -->
                 </div>
                 <figure class="card-profile-image">
-                  <img src="https://via.placeholder.com/150x150" alt="profile image" class="circle z-depth-2 responsive-img activator gradient-45deg-light-blue-cyan gradient-shadow">
-                  <div style="top: 10%;right: 3%;position: absolute;"><g:sharetoclassroom url="http://url-to-share" size="48"></g:sharetoclassroom></div>
+                  <img src=${
+                    data.pic
+                  } alt="profile image" class="circle z-depth-2 responsive-img activator gradient-45deg-light-blue-cyan gradient-shadow">
+                  <div style="top: 10%;right: 3%;position: absolute;"></div>
                 </figure>
                 <div class="card-content">
                   <div class="row pt-2">
