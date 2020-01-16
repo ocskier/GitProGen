@@ -75,13 +75,7 @@ const generateHTML = (data: UserDataType) => {
         }
         body {
           background-color: white;
-          -webkit-print-color-adjust: exact !important;
           font-family: "Cabin", sans-serif;
-        }
-        main {
-          background-color: #e9edee;
-          height: auto;
-          padding-top: 30px;
         }
         figure {
           display: flex;
@@ -103,6 +97,8 @@ const generateHTML = (data: UserDataType) => {
           margin: 0 auto;
           max-height: 600px;
           height: auto !important;
+          background-color: turquoise;
+          border-radius: 10px;
         }
         .card-image {
           display: flex;
@@ -238,7 +234,7 @@ const generateHTML = (data: UserDataType) => {
           </div>
         </div>
       </div>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
     </body>
   </html>`;
 };
