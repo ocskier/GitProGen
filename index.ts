@@ -55,7 +55,10 @@ function writeToFile(fileName: string, data: UserDataType) {
 async function init() {
   try {
     const { githubID, color, confirm } = await inquirer.prompt(questions);
-    confirm && getGHData(githubID, color);
+    if (confirm) {
+      const data = await getGHData(githubID, color);
+      data && writeToFile("output.pdf", data);
+    }
   } catch (err) {
     console.log(err);
   }
@@ -83,7 +86,7 @@ async function getGHData(id: string, color: string) {
     following: response.data.following,
   };
   userData && console.log(userData);
-  userData && writeToFile("output.pdf", userData);
+  return userData
 }
 
 init();
