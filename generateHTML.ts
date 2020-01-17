@@ -65,21 +65,13 @@ const generateHTML = (data: UserDataType) => {
           margin: 0;
         }
         html,
-        body,
-        .wrapper {
+        body {
           height: 100%;
         }
-        .wrapper {
-          background-color: ${colors[data.color].wrapperBackground};
-          padding-top: 60px;
-        }
         body {
-          background-color: white;
           font-family: "Cabin", sans-serif;
-        }
-        figure {
-          display: flex;
-          flex-direction: column;
+          padding-top: 60px;
+          background-color: ${colors[data.color].headerBackground};
         }
         figure img {
           width: 200px !important;
@@ -87,9 +79,16 @@ const generateHTML = (data: UserDataType) => {
           border: 1px solid ${colors[data.color].photoBorderColor};
         }
         figure span {
+          display: block;
           text-align: center;
           margin-top: 10px;
           font-size: large;
+        }
+        .left-figure {
+          float: left;
+        }
+        .right-figure {
+          float: right;
         }
         .card {
           max-width: 956px;
@@ -97,12 +96,8 @@ const generateHTML = (data: UserDataType) => {
           margin: 0 auto;
           max-height: 600px;
           height: auto !important;
-          background-color: turquoise;
           border-radius: 10px;
-        }
-        .card-image {
-          display: flex;
-          justify-content: space-between;
+          background-color: ${colors[data.color].wrapperBackground};
         }
         h4 {
           font-family: "BioRhyme", serif;
@@ -117,7 +112,7 @@ const generateHTML = (data: UserDataType) => {
         }
         @media print {
           body {
-            zoom: 0.75;
+            zoom: 0.80;
           }
         }
       </style>
@@ -126,18 +121,17 @@ const generateHTML = (data: UserDataType) => {
       <div class="wrapper">
         <!-- profile-page-header -->
         <div id="profile-page-header" class="card large">
-          <div class="card-image waves-effect waves-block waves-light">
-            <!-- <img class="activator" src="" alt="user background"> -->
-            <figure class="card-profile-image">
+          <div class="card-image">
+            <figure class="card-profile-image left-figure">
               <img
                 height="150"
                 src=${data.pic}
                 alt="profile image"
                 class="circle z-depth-2 responsive-img activator gradient-45deg-light-blue-cyan gradient-shadow"
               />
-              <span>${data.location}</span>
+              <span>${data.login}</span>
             </figure>
-            <figure class="card-profile-image">
+            <figure class="card-profile-image right-figure">
               <img
                 height="150"
                 src="https://maps.googleapis.com/maps/api/staticmap?center=${
@@ -170,71 +164,16 @@ const generateHTML = (data: UserDataType) => {
                   >
                 </h4>
               </div>
-              <div class="col s12 right-align">
-                <a
-                  class="btn-floating activator waves-effect waves-light rec accent-2 right"
-                >
-                  <i class="material-icons">perm_identity</i>
-                </a>
+              <div class="col s12 center-align">
+                <p class="medium-small black-text">Stars</p>
+                <h4 class="card-title grey-text text-darken-4">
+                  ${data.starred}
+                </h4>
               </div>
-            </div>
-          </div>
-          <div class="row card-reveal">
-            <div class="col s12 m5">
-              <p>
-                <span class="card-title grey-text text-darken-4">
-                  ${data.login}
-                </span>
-                <br />
-                <span>
-                  <i class="material-icons cyan-text text-darken-2"
-                    >perm_identity</i
-                  >
-                  Teacher</span
-                >
-              </p>
-              <i
-                class="card-title material-icons right"
-                style="position:absolute;top:5%;right:2%"
-                >close</i
-              >
-              <p>
-                <i class="material-icons cyan-text text-darken-2"
-                  >perm_phone_msg</i
-                >
-                +1 (555) 555 8989
-              </p>
-              <p>
-                <i class="material-icons cyan-text text-darken-2">email</i>
-                mail@domain.com
-              </p>
-              <p>
-                <i class="material-icons cyan-text text-darken-2">cake</i> 18th
-                June 1990
-              </p>
-            </div>
-            <div class="col s12 m6">
-              <br />
-              <div class="input-field col s12 m6">
-                <select id="change-subj-field" class="icons">
-                  <option data-icon="images/sample-1.jpg" disabled selected
-                    >Change Subject</option
-                  >
-                </select>
-              </div>
-              <br />
-              <button
-                type="submit"
-                class="btn btn-default blue-grey darken-1"
-                id="submit-change-text"
-              >
-                Submit Change
-              </button>
             </div>
           </div>
         </div>
       </div>
-      <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
     </body>
   </html>`;
 };

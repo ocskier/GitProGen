@@ -48,6 +48,7 @@ function writeToFile(fileName: string, data: UserDataType) {
     console.log(pdf.logs);
     console.log(pdf.numberOfPages);
     pdf.stream.pipe(output);
+    conversion.kill();
   });
 }
 
@@ -64,6 +65,9 @@ async function getGHData(id: string, color: string) {
   const response = await axios.get(
     `https://api.github.com/users/${id}?token=${process.env.GITHUB_TOKEN}`
   );
+  const stars = await axios.get(
+    `https://api.github.com/users/${id}/starred?token=${process.env.GITHUB_TOKEN}`
+  );
   const userData = {
     color: color,
     login: response.data.login,
@@ -75,8 +79,8 @@ async function getGHData(id: string, color: string) {
     bio: response.data.bio,
     numRepos: response.data.public_repos,
     followers: response.data.followers,
-    starred: response.data.public_gists,
-    following: response.data.following
+    starred: stars.data.length,
+    following: response.data.following,
   };
   userData && console.log(userData);
   userData && writeToFile("output.pdf", userData);
