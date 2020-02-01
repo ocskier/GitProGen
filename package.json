@@ -23,11 +23,11 @@
   "dependencies": {
     "@types/dotenv": "^8.2.0",
     "@types/inquirer": "^6.5.0",
-    "axios": "^0.19.1",
+    "axios": "^0.19.2",
     "dotenv": "^8.2.0",
-    "inquirer": "^7.0.3",
+    "inquirer": "^7.0.4",
     "phantom-html-to-pdf": "^0.6.0",
-    "typescript": "^3.7.4",
+    "typescript": "^3.7.5",
     "typescript-require": "^0.2.10"
   }
 }
