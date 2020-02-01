@@ -1,11 +1,11 @@
-require("dotenv").config();
+require('dotenv').config();
 
-const fs = require("fs");
+const fs = require('fs');
 
-const inquirer = require("inquirer");
-const conversion = require("phantom-html-to-pdf")();
-const axios = require("axios");
-const spawnHTML = require("./generateHTML");
+const inquirer = require('inquirer');
+const conversion = require('phantom-html-to-pdf')();
+const axios = require('axios');
+const spawnHTML = require('./generateHTML');
 
 export interface UserDataType {
   color: string;
@@ -24,28 +24,27 @@ export interface UserDataType {
 
 const questions = [
   {
-    message: "What is your github username?",
-    type: "input",
-    name: "githubID"
+    message: 'What is your github username?',
+    type: 'input',
+    name: 'githubID',
   },
   {
-    message: "What color do you want your profile?",
-    type: "list",
-    choices: ["green", "blue", "pink", "red"],
-    name: "color"
+    message: 'What color do you want your profile?',
+    type: 'list',
+    choices: ['green', 'blue', 'pink', 'red'],
+    name: 'color',
   },
   {
-    message: "Are you sure?",
-    type: "confirm",
-    name: "confirm"
-  }
+    message: 'Are you sure?',
+    type: 'confirm',
+    name: 'confirm',
+  },
 ];
 
 function writeToFile(fileName: string, data: UserDataType) {
   conversion({ html: spawnHTML(data) }, function(err: Error, pdf: any) {
     if (err) console.log(err);
     const output = fs.createWriteStream(fileName);
-    console.log(pdf.logs);
     console.log(pdf.numberOfPages);
     pdf.stream.pipe(output);
     conversion.kill();
@@ -57,7 +56,7 @@ async function init() {
     const { githubID, color, confirm } = await inquirer.prompt(questions);
     if (confirm) {
       const data = await getGHData(githubID, color);
-      data && writeToFile("output.pdf", data);
+      data && writeToFile('output.pdf', data);
     }
   } catch (err) {
     console.log(err);
@@ -85,8 +84,7 @@ async function getGHData(id: string, color: string) {
     starred: stars.data.length,
     following: response.data.following,
   };
-  userData && console.log(userData);
-  return userData
+  return userData;
 }
 
 init();
