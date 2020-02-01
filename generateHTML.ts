@@ -125,7 +125,7 @@ const generateHTML = (data: UserDataType) => {
             <figure class="card-profile-image left-figure">
               <img
                 height="150"
-                src=${data.pic}
+                src=${data.avatar_url}
                 alt="profile image"
                 class="circle z-depth-2 responsive-img activator gradient-45deg-light-blue-cyan gradient-shadow"
               />
@@ -151,16 +151,16 @@ const generateHTML = (data: UserDataType) => {
               <div class="col s12 center-align">
                 <p class="medium-small black-text">Repos</p>
                 <h4 class="card-title grey-text text-darken-4">
-                  ${data.numRepos}
+                  ${data.public_repos}
                 </h4>
               </div>
               <div class="col s12 center-align">
                 <h4 class="card-title grey-text text-darken-4">
                   <a
-                    href=${data.profile}
+                    href=${data.html_url}
                     class="medium-small black-text"
                     target="blank"
-                    >${data.profile}</a
+                    >${data.html_url}</a
                   >
                 </h4>
               </div>

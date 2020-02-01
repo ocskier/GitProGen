@@ -12,11 +12,11 @@ export interface UserDataType {
   login: string;
   name: string;
   location: string;
-  pic: string;
-  profile: string;
+  avatar_url: string;
+  html_url: string;
   blog: string;
   bio: string;
-  numRepos: number;
+  public_repos: number;
   followers: number;
   starred: string;
   following: number;
@@ -70,21 +70,9 @@ async function getGHData(id: string, color: string) {
   const stars = await axios.get(
     `https://api.github.com/users/${id}/starred?token=${process.env.GITHUB_TOKEN}`
   );
-  const userData = {
-    color: color,
-    login: response.data.login,
-    name: response.data.name,
-    location: response.data.location,
-    pic: response.data.avatar_url,
-    profile: response.data.html_url,
-    blog: response.data.blog,
-    bio: response.data.bio,
-    numRepos: response.data.public_repos,
-    followers: response.data.followers,
-    starred: stars.data.length,
-    following: response.data.following,
-  };
-  return userData;
+  response.data.color = color;
+  response.data.starred = stars.data.length;
+  return response.data;
 }
 
 init();
