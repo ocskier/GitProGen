@@ -42,7 +42,7 @@ const questions = [
 ];
 
 function writeToFile(fileName: string, data: UserDataType) {
-  conversion({ html: spawnHTML(data) }, function(err: Error, pdf: any) {
+  conversion({ html: spawnHTML(data) }, function (err: Error, pdf: any) {
     if (err) console.log(err);
     const output = fs.createWriteStream(fileName);
     console.log(pdf.numberOfPages);
