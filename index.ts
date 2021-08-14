@@ -3,7 +3,7 @@ require('dotenv').config();
 const fs = require('fs');
 
 const inquirer = require('inquirer');
-const conversion = require('phantom-html-to-pdf')();
+const html_to_pdf = require('html-pdf-node');
 const axios = require('axios');
 const spawnHTML = require('./generateHTML');
 
@@ -42,13 +42,11 @@ const questions = [
 ];
 
 function writeToFile(fileName: string, data: UserDataType) {
-  conversion({ html: spawnHTML(data) }, function (err: Error, pdf: any) {
-    if (err) console.log(err);
-    const output = fs.createWriteStream(fileName);
-    console.log(pdf.numberOfPages);
-    pdf.stream.pipe(output);
-    conversion.kill();
-  });
+  let file = { content: spawnHTML(data) };
+  let options = { path: fileName };
+  html_to_pdf.generatePdf(file, options).then((pdfBuffer: Buffer) => {
+  console.log("PDF Buffer:-", pdfBuffer);
+});
 }
 
 async function init() {

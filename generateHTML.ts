@@ -59,6 +59,9 @@ const generateHTML = (data: UserDataType) => {
       />
       <title>Document</title>
       <style>
+        html {
+          -webkit-print-color-adjust: exact; 
+        }
         html,
         body {
           padding: 0;
@@ -71,12 +74,12 @@ const generateHTML = (data: UserDataType) => {
         body {
           font-family: "Cabin", sans-serif;
           padding-top: 60px;
-          background-color: ${colors[data.color].headerBackground};
+          background-color: ${colors[data.color].headerBackground} !important;
         }
         figure img {
           width: 200px !important;
           border-radius: 50% !important;
-          border: 1px solid ${colors[data.color].photoBorderColor};
+          border: 1px solid ${colors[data.color].photoBorderColor} !important;
         }
         figure span {
           display: block;
@@ -97,7 +100,7 @@ const generateHTML = (data: UserDataType) => {
           max-height: 600px;
           height: auto !important;
           border-radius: 10px;
-          background-color: ${colors[data.color].wrapperBackground};
+          background-color: ${colors[data.color].wrapperBackground} !important;
         }
         h4 {
           font-family: "BioRhyme", serif;
